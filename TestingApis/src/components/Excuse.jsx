@@ -4,14 +4,23 @@ import React, { useState } from 'react';
 const Excuse = () => {
   const [generatedExcuse, setGeneratedExcuse] = useState("");
 
-  const fetchExcuses = (excuse) => {
-    axios.get(`https://excuser-three.vercel.app/v1/excuse/${excuse}`)
-      .then((res) => {
-        setGeneratedExcuse(res.data[0].excuse); 
-      })
-      .catch((error) => {
-        console.error('Error fetching excuse:', error); 
-      });
+  const fetchExcuses = async (excuse) => {
+    try {
+        const res = await axios.get(`https://excuser-three.vercel.app/v1/excuse/${excuse}`)
+        setGeneratedExcuse(res.data[0].excuse)
+        
+    } catch (error) {
+        console.log("Error fetching excuses: " +  error);
+        
+    }
+    
+    // axios.get(`https://excuser-three.vercel.app/v1/excuse/${excuse}`)
+    //   .then((res) => {
+    //     setGeneratedExcuse(res.data[0].excuse); 
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error fetching excuse:', error); 
+    //   });
   };
 
   return (
