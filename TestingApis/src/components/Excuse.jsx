@@ -14,13 +14,6 @@ const Excuse = () => {
         
     }
     
-    // axios.get(`https://excuser-three.vercel.app/v1/excuse/${excuse}`)
-    //   .then((res) => {
-    //     setGeneratedExcuse(res.data[0].excuse); 
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error fetching excuse:', error); 
-    //   });
   };
 
   return (
